@@ -46,6 +46,7 @@ def grade(str):
             score += TRIGRAM_FREQUENCIES[trigram]
     return score
 
+
 def main():
     encoded_hex_str = ('1b37373331363f781'
                        '51b7f2b783431333d'

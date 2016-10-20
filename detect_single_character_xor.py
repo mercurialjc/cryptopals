@@ -15,16 +15,16 @@ def main():
         decrypted_str = ''
         for line in lines:
            suspect = line.rstrip('\n').decode('hex')
-           length = len(suspect)/2
+           length = len(suspect)
            for char in single_byte_xor_cipher.generate_ascii_char():
-               key = (char.encode('hex')*length).decode('hex')
+               key = char*length
                curr_decoded_str = single_byte_xor_cipher.xor_str(suspect, key)
                score = single_byte_xor_cipher.grade(curr_decoded_str)
                if score >= max_score:
                    max_score = score
                    decrypted_str = curr_decoded_str
         if decrypted_str != '':
-            print decrypted_str
+            print decrypted_str.strip('\n')
 
 
 if __name__ == '__main__':
